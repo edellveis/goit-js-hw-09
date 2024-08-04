@@ -93,3 +93,6 @@ border: none;
 .modal-feedback-btn:hover{
     background: #6C8CFF;
 }
+.back{
+    text-decoration: none;
+}

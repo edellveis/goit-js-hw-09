@@ -66,20 +66,28 @@ const images = [
       description: 'Lighthouse Coast Sea',
     },
   ];
-const createGalleryImg = (el) =>{
+const createGalleryImg = el =>{
     return `
   <li class="gallery-item">
-	<a class="gallery-link" href="${original}">
+	<a class="gallery-link" href="${el.original}">
 		<img 
 			class="gallery-image" 
-			src="${preview}" 
-			alt="${description}" 
+			src="${el.preview}" 
+			alt="${el.description}" 
 			/>
 	</a>
 </li>
-
     `
 }
-const imgCard = images.map((e) => createGalleryImg(e)).join('');
+const imgCard = images.map(el => createGalleryImg(el)).join('');
 const gallery = document.querySelector('.gallery');
 gallery.innerHTML = imgCard;
+
+
+new SimpleLightbox('.gallery a', { 
+  captions: true,
+  captionsData: 'alt',
+  captionDelay: 250,
+	overlayOpacity: 0.8,
+	captionsPosition: 'bottom'
+ });
